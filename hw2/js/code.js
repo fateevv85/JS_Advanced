@@ -69,3 +69,4 @@ Table.prototype.render = function () {
     }
     document.body.insertBefore(table, document.querySelector('script'));
 };
+ 
