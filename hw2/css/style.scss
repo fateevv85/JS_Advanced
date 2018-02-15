@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#button {
+  display: block;
+  margin: 0 auto;
+}
+#pok {
+  border-collapse: collapse;
+  text-transform: capitalize;
+  margin: 0 auto;
+  tr {
+    &:nth-child(even) {
+      background-color: cornsilk;
+    }
+  }
+  td {
+    border: 1px solid #000;
+  }
+}

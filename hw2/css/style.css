@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+#button {
+  display: block;
+  margin: 0 auto; }
+
+#pok {
+  border-collapse: collapse;
+  text-transform: capitalize;
+  margin: 0 auto; }
+  #pok tr:nth-child(even) {
+    background-color: cornsilk; }
+  #pok td {
+    border: 1px solid #000; }
+
+/*# sourceMappingURL=style.css.map */

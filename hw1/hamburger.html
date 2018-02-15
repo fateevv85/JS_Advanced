@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hamburger</title>
+</head>
+<body>
+
+
+
+
+<script src="js/hamburger.js"></script>
+<script>
+  window.onload = function () {
+      var a = new Hamburger('large', 'salad');
+
+      a.addTopping('spice');
+      a.addTopping('spice');
+      a.addTopping('mayo');
+      a.addTopping('mayo');
+      // a.removeTopping('spice');
+      // a.removeTopping('spice');
+      // a.addTopping('spice');
+      a.getToppings();
+      a.getSize();
+      a.getStuffing();
+      a.calculatePrice();
+      a.calculateCalories();
+
+      console.log(a);
+  }
+</script>
+</body>
+</html>

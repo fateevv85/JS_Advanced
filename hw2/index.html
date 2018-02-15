@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemons!</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<button id="button" onclick="getPokemons()">Lets see 150 pokemons!</button>
+
+<script src="js/code.js"></script>
+<script>
+  function getPokemons() {
+      var a = new Table('pok', 'pokclass', 1);
+      a.render();
+      var button = document.querySelector('#button');
+      button.disabled = true;
+      button.innerHTML = 'Ready!';
+  }
+</script>
+</body>
+</html>

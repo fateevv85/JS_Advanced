@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu</title>
+</head>
+<body>
+
+
+<script src="js/menu.js"></script>
+<script>
+    window.onload = function() {
+        var item1 = new MenuItem('#', 'Главная');
+        var item2 = new MenuItem('#', 'Каталог');
+        var item3 = new MenuItem('#', 'О нас');
+
+        var menu = new Menu('menu', 'menu', [
+            item1, item2, item3
+        ]);
+
+        var item4 = new MenuItem('#', 'Карта проезда');
+        var item5 = new MenuItem('#', 'Контакты');
+
+        var item6 = new MenuItem('#', 'Прайс');
+        var item7 = new MenuItem('#', 'Скидки');
+
+        document.body.appendChild(menu.render());
+
+        var nestedMenu = new NestedMenu('aboutUs', 'menu', [
+            item4, item5
+        ], 2);
+
+        var nestedMenu1 = new NestedMenu('Catalog', 'menu', [
+            item6, item7
+        ], 1);
+
+        nestedMenu.insertNM();
+        nestedMenu1.insertNM();
+
+        menu.remove('Скидки');
+
+    }
+</script>
+</body>
+</html>
