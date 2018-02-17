@@ -7,17 +7,52 @@
 </head>
 <body>
 
-<h3>Home Work 3</h3>
-<fieldset>
-  <legend><h4>Задание 1</h4></legend>
-  <p>1. У вас есть большой текст, в котором для обозначения диалогов используются одинарные кавычки. Придумать шаблон, который меняет одинарные кавычки на двойные.</p>
-  <p>2. Улучшить шаблон таким образом, чтобы конструкции типа aren’t не меняли одинарную кавычку на двойную.</p>
-  <textarea name="" id="text" cols="30" rows="10"></textarea>
-  <button id="buttonT1" onclick="doIt()">Do it!</button>
-  <button onclick="refresh()">Refresh</button>
-</fieldset>
+<!--<h3>Home Work 3</h3>-->
+<!--<fieldset>-->
+  <!--<legend><h4>Задание 1</h4></legend>-->
+  <!--<p>1. У вас есть большой текст, в котором для обозначения диалогов используются одинарные кавычки. Придумать шаблон, который меняет одинарные кавычки на двойные.</p>-->
+  <!--<p>2. Улучшить шаблон таким образом, чтобы конструкции типа aren’t не меняли одинарную кавычку на двойную.</p>-->
+  <!--<textarea name="" cols="30" rows="10"></textarea>-->
+  <!--<div>-->
+  <!--<button onclick="doIt()">Do it!</button>-->
+  <!--<button onclick="refresh()">Refresh</button>-->
+  <!--</div>-->
+<!--</fieldset>-->
 
-<script src="js/task1.js"></script>
+<fieldset>
+  <legend><h4>Задание 2</h4></legend>
+  <p>3. Создать форму обратной связи с полями: Имя, Телефон, e-mail, текст, кнопка «Отправить».</p>
+  При нажатии на кнопку «Отправить» произвести валидацию полей следующим образом:
+  <ul>
+    <li>Имя содержит только буквы</li>
+    <li>Телефон подчиняется шаблону +7(000)000-0000</li>
+    <li>E-mail выглядит как mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru</li>
+    <li>Текст произвольный</li>
+    <li>В случае не прохождения валидации одним из полей необходимо выделять это поле красной рамкой и сообщать пользователю об ошибке.</li>
+  </ul>
+  <fieldset>
+    <form action="#" class="contacts">
+      <!--<label for="name">Name: </label>-->
+      <!--<input id="name" type="text" placeholder="your name" required pattern="[A-Za-zА-Яа-яЁё]">-->
+      <label for="name">Name: </label>
+      <input id="name" type="text" placeholder="your name" required>
+      <br>
+      <label for="tel">Telephone number: </label>
+      <input id="tel" type="tel" placeholder="+7(123)456-7890" required>
+      <br>
+      <label for="mail">Email: </label>
+      <input id="mail" type="email" placeholder="email@mail.ru" required>
+      <br>
+      <label for="text">Message: </label>
+      <input id="text" type="text" placeholder="your message">
+      <br>
+      <input type="submit" value="Отправить" onclick="check()">
+      <input type="reset" value="Reset">
+    </form>
+  </fieldset>
+</fieldset>
+<!--<script src="js/task1.js"></script>-->
+<script src="js/task2.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,21 @@
-#buttonT1 {
-  display: block;
+button {
+  width: 65px;
+}
+
+textarea {
+  width: 317px;
+  height: 110px;
+}
+
+.contacts {
+  label {
+    width: 130px;
+    display: inline-block;
+    margin: 6px;
+  }
+}
+
+.false {
+  outline: none;
+  border: 2px solid red;
 }
