@@ -49,7 +49,10 @@
             //if array is non empty and if 'city list' non existing, create it
             if (!$('#city_list').length && $citiesArr.length > 0/* && $('#city_list').length === $citiesArr.length*/) {
               //create 'select' element
-              var $select = $('<select size="5" />').attr('id', 'city_list').hide();
+              var $select = $('<select />').attr({
+                id: 'city_list',
+                size: $citiesArr.length
+              }).hide();
               for (var i = 0; i < $citiesArr.length; i++) {
                 var $option = $('<option />');
                 //create list of cities and add events on double click
