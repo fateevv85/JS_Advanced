@@ -224,6 +224,15 @@ input[id="item-radio_6"]:checked + .acc__header + .acc__item {
 .acc__input_text-capitalize {
   text-transform: capitalize; }
 
+#city_input {
+  position: relative; }
+  #city_input #city_list {
+    position: absolute;
+    top: 64px;
+    left: 22px;
+    width: 50%;
+    height: 100%; }
+
 .wrong_input {
   position: relative; }
   .wrong_input input {
@@ -233,7 +242,7 @@ input[id="item-radio_6"]:checked + .acc__header + .acc__item {
     display: block;
     position: absolute;
     border-radius: 5px;
-    top: 41px;
+    top: 36px;
     left: 28%;
     background-color: yellow;
     box-shadow: 0 0 10px #3b9657;
@@ -244,7 +253,7 @@ input[id="item-radio_6"]:checked + .acc__header + .acc__item {
   .wrong_input:after {
     content: 'only russian letters!';
     position: absolute;
-    top: 38px;
+    top: 33px;
     left: 29%;
     opacity: 0.8;
     animation: appears 1s ease; }
