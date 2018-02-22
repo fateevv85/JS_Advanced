@@ -19,7 +19,6 @@
         //only if number of letters is more than 2 send data to server
         if ($cityInput.val().length > 2) {
           var $citiesArr = [];
-          // $('#city_list').remove();
           $.ajax({
             url: 'http://api.spacenear.ru/index.php',
             type: 'POST',
@@ -51,7 +50,7 @@
           }).done(function () {
             $('.loader').hide();
             //if array is non empty and if 'city list' non existing, create it
-            if (!$('#city_list').length && $citiesArr.length > 0/* && $('#city_list').length === $citiesArr.length*/) {
+            if (!$('#city_list').length && $citiesArr.length > 0) {
               //create 'select' element
               var $select = $('<select />').attr({
                 id: 'city_list',
