@@ -102,3 +102,47 @@ textarea {
     content: 'No such city in data-base!';
   }
 }
+
+.loader {
+  display: none;
+}
+.container {
+  position: absolute;
+  left: 309px;
+  top: 15px;
+  height: auto;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: rotate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.container span {
+  position: absolute;
+  height: 22px;
+  width: 4px;
+  background: #333;
+}
+#cog-0 {
+  position: absolute;
+  transform: rotate(0deg);
+}
+#cog-45 {
+  position: absolute;
+  transform: rotate(45deg);
+}
+#cog-90{
+  position: absolute;
+  transform: rotate(90deg);
+}
+#cog-135{
+  position: absolute;
+  transform: rotate(135deg);
+}
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}

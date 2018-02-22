@@ -38,14 +38,18 @@
               // get the native XmlHttpRequest object
               var xhr = $.ajaxSettings.xhr() ;
               // set the onprogress event handler
-              xhr.upload.onprogress = function(evt){ console.log('progress', evt.loaded/evt.total*100) } ;
+              xhr.upload.onprogress = function(){
+                //add loader
+                $('.loader').show();
+              };
               // set the onload event handler
-              xhr.upload.onload = function(){ console.log('DONE!') } ;
+              // xhr.upload.onload = function(){ console.log('DONE!') } ;
               // return the customized object
               return xhr ;
             }
             //when server return answer
           }).done(function () {
+            $('.loader').hide();
             //if array is non empty and if 'city list' non existing, create it
             if (!$('#city_list').length && $citiesArr.length > 0/* && $('#city_list').length === $citiesArr.length*/) {
               //create 'select' element
