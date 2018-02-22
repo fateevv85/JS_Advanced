@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Work 3</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>Home Work 4</h3>
+
+<fieldset>
+  <legend><h4>Задание</h4></legend>
+  <h4>В форму обратной связи добавить возможность выбора города обращения.</h4>
+  <ul>
+    <li>Список должен загружаться после загрузки страницы через AJAX;</li>
+    <li>Если пользователь ввёл 3 и более символов, нужно подгрузить список городов и показать подходящие по вводу;</li>
+    <li>При клике на подходящий город, ввести его полное название в текстовое поле;</li>
+  </ul>
+  <fieldset>
+    <form action="#" class="contacts">
+      <label for="name">Name: </label>
+      <input id="name" type="text" placeholder="your name" required>
+      <div class="messageWrong hidden">
+        <div class="messageWrong_triangle"></div><div class="messageWrong_text">Поле заполнено неправильно</div>
+      </div>
+      <br>
+      <label for="tel">Telephone number: </label>
+      <input id="tel" type="tel" placeholder="+7(123)456-7890" required>
+      <div class="messageWrong hidden">
+        <div class="messageWrong_triangle"></div><div class="messageWrong_text">Поле заполнено неправильно</div>
+      </div>
+      <br>
+      <label for="mail">Email: </label>
+      <input id="mail" type="email" placeholder="email@mail.ru" required>
+      <div class="messageWrong hidden">
+        <div class="messageWrong_triangle"></div><div class="messageWrong_text">Поле заполнено неправильно</div>
+      </div>
+      <br>
+      <label for="text">Message: </label>
+      <input id="text" type="text" placeholder="your message">
+      <br>
+      <div id="city_input">
+        <label for="city_range" class="acc__label">City: </label>
+        <input type="text" id="city_range" placeholder="input city">
+      </div>
+      <input type="submit" value="Отправить">
+      <input type="reset" value="Reset">
+    </form>
+  </fieldset>
+</fieldset>
+
+<script src="js/task.js"></script>
+<script src="js/citySelect.js"></script>
+</body>
+</html>
+
