@@ -32,40 +32,42 @@ textarea {
 .hidden {
   display: none; }
 
-#city_input {
+#city_input_form {
   position: relative; }
-  #city_input #city_list {
+  #city_input_form #city_list {
     position: absolute;
     top: 27px;
     left: 146px; }
-  #city_input #city_range {
+  #city_input_form #city_input {
     text-transform: capitalize;
     outline: none; }
-    #city_input #city_range:active {
+    #city_input_form #city_input:active {
       outline: none; }
 
-.wrong_input {
+.wrong_input, .wrong_city {
   position: relative; }
-  .wrong_input input {
+  .wrong_input input, .wrong_city input {
     border: 1px solid red; }
-  .wrong_input:before {
+  .wrong_input:before, .wrong_city:before {
     content: '';
     display: block;
     position: absolute;
-    border-radius: 5px;
+    border-radius: 20px;
     top: 6px;
-    left: 40%;
-    background-color: yellow;
-    box-shadow: 0 0 10px #3b9657;
-    width: 150px;
+    left: 53%;
+    background-color: indianred;
+    box-shadow: 0 0 10px #000000;
+    width: 20px;
     height: 20px;
-    opacity: 0.5;
+    opacity: 1;
     animation: appears 1s ease; }
-  .wrong_input:after {
-    content: 'only russian letters!';
+  .wrong_input:after, .wrong_city:after {
+    content: 'Only russian letters!';
     position: absolute;
-    top: 8px;
-    left: 339px;
+    border-radius: 6px;
+    top: 6px;
+    left: 343px;
+    background-color: indianred;
     opacity: 0.8;
     animation: appears 1s ease; }
 @keyframes appears {
@@ -75,5 +77,7 @@ textarea {
     opacity: 1; }
   100% {
     opacity: 0.5; } }
+.wrong_city:after {
+  content: 'No such city in data-base!'; }
 
 /*# sourceMappingURL=style.css.map */
