@@ -46,7 +46,7 @@
               // return the customized object
               return xhr ;
             }
-            //when server return answer
+            //when server response
           }).done(function () {
             $('.loader').hide();
             //if array is non empty and if 'city list' non existing, create it
@@ -54,7 +54,12 @@
               //create 'select' element
               var $select = $('<select />').attr({
                 id: 'city_list',
-                size: $citiesArr.length
+                size: function () {
+                  if ($citiesArr.length > 2) {
+                    return $citiesArr.length;
+                  }
+                  return 2;
+                }
               }).hide();
               for (var i = 0; i < $citiesArr.length; i++) {
                 var $option = $('<option />');
