@@ -25,8 +25,8 @@
             data: {pattern: this.value},
             dataType: 'json',
             success: function (cities) {
-              $.each(cities, function (index, value) {
-                $citiesArr.push(value.name);
+              $citiesArr = cities.map(function (value) {
+                return value.name;
               });
             },
             error: function () {
