@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.container {
+  margin-left: 20px;
+  max-width: 560px; }
+
+.tabs_showcase {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 20px; }
+
+.content {
+  width: 500px;
+  border: 1px solid seagreen;
+  border-radius: 0 6px 6px 6px;
+  padding: 1em;
+  order: 5; }
+  .content p {
+    text-indent: 20px;
+    margin-bottom: 1em; }
+    .content p:first-letter {
+      color: red;
+      font-weight: 600; }
+  .content :last-child {
+    margin-bottom: 0; }
+
+.hide {
+  display: none; }
+
+.tab {
+  margin-right: 2px;
+  background-color: seagreen;
+  color: white;
+  border-radius: 6px 6px 0 0; }
+  .tab .tab_desc {
+    padding: 10px 20px; }
+  .tab:hover {
+    background-color: #57c889;
+    cursor: pointer; }
+
+.tabs_showcase :nth-last-child(2) {
+  margin-right: 0; }
+
+.active {
+  background-color: white;
+  color: black;
+  border: 1px solid seagreen;
+  border-bottom: 0;
+  position: relative; }
+  .active:hover {
+    background-color: white;
+    cursor: default; }
+  .active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: white;
+    top: 38px;
+    width: 100%;
+    height: 2px; }
+
+.column .tabs_showcase {
+  flex-flow: column wrap;
+  height: 160px; }
+  .column .tabs_showcase :nth-last-child(2) {
+    margin-bottom: 0; }
+  .column .tabs_showcase .content p {
+    margin-bottom: 1em; }
+  .column .tabs_showcase .content :last-child {
+    margin-bottom: 0; }
+  .column .tabs_showcase .active {
+    border: 1px solid seagreen;
+    border-right: 0; }
+    .column .tabs_showcase .active::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: white;
+      top: 1px;
+      right: -1px;
+      width: 2px;
+      height: 98%; }
+.column .tab {
+  width: 120px;
+  border-radius: 6px 0 0 6px;
+  margin-bottom: 2px;
+  margin-right: -1px; }
+
+@media screen and (max-width: 540px) {
+  .content {
+    width: 100%;
+    border-radius: 0 0 6px 6px; }
+
+  .tab {
+    flex-grow: 1; }
+
+  .tabs_showcase {
+    margin-right: 20px; } }
+@media screen and (max-width: 331px) {
+  .tabs_showcase {
+    flex-flow: column nowrap; } }
+
+/*# sourceMappingURL=style.css.map */
