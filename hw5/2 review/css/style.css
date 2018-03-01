@@ -27,22 +27,26 @@ table {
     background-color: gainsboro; }
   table tr th {
     border: 1px solid #000; }
-  table tr .approved {
+  table tr td {
+    border: 1px solid #000;
+    padding: 2px 5px; }
+    table tr td:last-child {
+      width: 10px;
+      background-color: indianred;
+      background-image: url(../img/wrong.png);
+      -webkit-background-size: contain;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-size: 0; }
+  table .approved td:last-child {
     width: 10px;
     background-color: green;
     background-image: url(../img/ok.png);
     -webkit-background-size: contain;
     background-size: contain;
-    background-repeat: no-repeat; }
-  table tr .disapproved {
-    width: 10px;
-    background-color: indianred;
-    background-image: url(../img/wrong.png);
-    -webkit-background-size: contain;
-    background-size: contain;
-    background-repeat: no-repeat; }
-  table tr td {
-    border: 1px solid #000;
-    padding: 2px 5px; }
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0; }
 
 /*# sourceMappingURL=style.css.map */
