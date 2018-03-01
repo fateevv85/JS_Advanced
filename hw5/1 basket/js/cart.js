@@ -37,8 +37,8 @@ function Cart(options) {
     request.send(null);
 
     // POST
-    /*
-    что-то я не так здесь делаю, не пойму что.
+/*
+    //что-то я не так здесь делаю, не пойму что.
 
         request.open('POST', Cart.endpoint + '/basket', true);
         var str = {
@@ -55,7 +55,7 @@ function Cart(options) {
         request.setRequestHeader("Content-Type", "application/json");
         console.log(body);
         request.send(body);
-    */
+*/
 
     request.onreadystatechange = function () {
       if (this.readyState === 4) {

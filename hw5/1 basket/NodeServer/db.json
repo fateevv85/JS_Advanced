@@ -1,0 +1,37 @@
+{
+  "basket": [
+    {
+      "userId": 1,
+      "result": 1,
+      "cart": [
+        {
+          "number": 1,
+          "id_product": 123,
+          "price": 300,
+          "quantity": 2
+        }
+      ],
+      "amount": 200
+    },
+    {
+      "cart": [
+        {
+          "id_product": 456,
+          "price": 100,
+          "quantity": 3
+        }
+      ],
+      "userId": 2
+    },
+    {
+      "cart": [
+        {
+          "id_product": 789,
+          "price": 400,
+          "quantity": 5
+        }
+      ],
+      "userId": 3
+    }
+  ]
+}
