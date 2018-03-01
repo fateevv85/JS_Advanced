@@ -2,6 +2,7 @@ function Container() {
   this.userId = '';
   this.text = '';
   this.commentId = '';
+  this.data = '';
 }
 
 function Review(options) {
@@ -12,7 +13,7 @@ function Review(options) {
   //метод добавления отзыва
   this.addReview = function (callback) {
     //данные для передачи на сервер
-    data = {
+    this.data = {
       add_review: true,
       id_user: this.userId,
       text: this.text
@@ -22,7 +23,7 @@ function Review(options) {
   };
   //метод одобрения отзыва
   this.approveReview = function (callback) {
-    data = {
+    this.data = {
       approve_review: true,
       id_comment: this.commentId
     };
@@ -34,14 +35,14 @@ function Review(options) {
     if (document.querySelector('table')) {
       document.querySelector('table').remove();
     }
-    data = {
+    this.data = {
       show_reviews: true
     };
     this.xmlRequest();
   };
   //метод удаления отзывов
   this.deleteReview = function (callback) {
-    data = {
+    this.data = {
       delete_review: true,
       id_comment: this.commentId
     };
@@ -54,9 +55,10 @@ Review.prototype.xmlRequest = function (callback) {
   //т.к. данные - обьект, а на сервер должна передаваться строка вида:
   //add_review=true&id_user=1&text=text,
   //то преобразуем обьект в строку:
-  var result = Object.keys(data).map(function (key) {
+  var result = Object.keys(this.data).map(function (key) {
     return key + '=' + this[key];
-  }, data);
+  }, this.data);
+  var checkForShowReviews = this.data.hasOwnProperty('show_reviews');
   //сам запрос
   var xml = new XMLHttpRequest();
   xml.open('POST', Review.endpoint, true);
@@ -68,7 +70,7 @@ Review.prototype.xmlRequest = function (callback) {
       if (this.status === 200) {
         //т.к. рендер происходит только при выполнении showReview(),
         // то делаем проверку на существование свойства:
-        if (data.show_reviews) {
+        if (checkForShowReviews) {
           //и в нем помещаем рендер
           var content = JSON.parse(xml.responseText);
           //проверка на content
@@ -92,16 +94,11 @@ Review.prototype.xmlRequest = function (callback) {
               for (var prop in content[i]) {
                 var td = document.createElement('td');
                 //если у свойства есть имя "approve" и в нем стоит 1,
-                // то присваиваем ему класс approved, для стилей css
+                // то присваиваем строке класс approved, для стилей css
                 if (prop === 'approve' && content[i].approve === '1') {
-                  td.classList.add('approved');
-                  //если 0
-                } else if (prop === 'approve' && content[i].approve === '0') {
-                  td.classList.add('disapproved');
-                  //для остальных свойств добавляем значения в ячейки
-                } else {
-                  td.innerText = content[i][prop];
+                  tr.classList.add('approved');
                 }
+                td.innerText = content[i][prop];
                 tr.appendChild(td);
               }
               table.appendChild(tr);
@@ -136,11 +133,11 @@ window.onload = function () {
     var id_user = document.querySelector('#id_user').value;
     var text = document.querySelector('#text').value;
     //проверка на заполненность input
-    if (id_user.trim() === '' || text.trim() === '') {
-      console.log('Id or text is empty!')
+    if (!id_user.trim() || !text.trim()) {
+      document.querySelector('#status').value = 'Id or text is empty!';
     } else {
       //если inputs заполнены, то:
-      a = new Review({
+      var a = new Review({
         id_user: id_user,
         text: text
       });
@@ -155,10 +152,10 @@ window.onload = function () {
 //событие на кнопку approveReview
   document.querySelector('#approveReview').addEventListener('click', function () {
     var idCommentField = document.querySelector('#id_comment').value;
-    if (idCommentField.trim() === '') {
+    if (!idCommentField.trim()) {
       document.querySelector('#status').value = 'Comment ID is empty!';
     } else {
-      a = new Review({
+      var a = new Review({
         commentId: idCommentField
       });
       a.approveReview(function () {
@@ -170,10 +167,10 @@ window.onload = function () {
 //событие на кнопку deleteReview
   document.querySelector('#deleteReview').addEventListener('click', function () {
     var idCommentField = document.querySelector('#id_comment').value;
-    if (idCommentField.trim() === '') {
+    if (!idCommentField.trim()) {
       document.querySelector('#status').value = 'Comment ID is empty!';
     } else {
-      a = new Review({
+      var a = new Review({
         commentId: idCommentField
       });
       a.deleteReview(function () {
@@ -183,8 +180,10 @@ window.onload = function () {
   });
 //событие на кнопку showReview
   document.querySelector('#showReview').addEventListener('click', function () {
-    document.querySelector('#status').value = '';
-    a = new Review({});
+    if (document.querySelector('#status')) {
+      document.querySelector('#status').value = '';
+    }
+    var a = new Review({});
     a.showReview();
   });
 };
