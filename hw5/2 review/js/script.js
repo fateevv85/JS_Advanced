@@ -66,7 +66,7 @@ Review.prototype.xmlRequest = function (callback) {
   xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xml.send(result.join('&'));
   xml.onreadystatechange = function () {
-    if (this.readyState === 4) {
+    if (this.readyState === XMLHttpRequest.DONE) {
       if (this.status === 200) {
         //т.к. рендер происходит только при выполнении showReview(),
         // то делаем проверку на существование свойства:
