@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home work 5</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<script src="js/cart.js"></script>
+<script>
+  window.onload = function () {
+    var a = new Cart({
+      id: 'idA',
+      className: 'classA',
+      userId: '1'
+    });
+
+    a.init();
+    document.body.appendChild(a.render());
+    
+  }
+</script>
+</body>
+</html>
