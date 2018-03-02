@@ -14,6 +14,9 @@ textarea {
   outline: none;
   border: 2px solid red; }
 
+#dialog span {
+  color: indianred; }
+
 .messageWrong {
   display: inline-block;
   animation: appearing 1s ease-in-out; }
@@ -44,11 +47,11 @@ textarea {
     #city_input_form #city_input:active {
       outline: none; }
 
-.wrong_input, .wrong_city {
+.wrong_input, .wrong_city, .wrong_date {
   position: relative; }
-  .wrong_input input, .wrong_city input {
+  .wrong_input input, .wrong_city input, .wrong_date input {
     border: 1px solid red; }
-  .wrong_input:before, .wrong_city:before {
+  .wrong_input:before, .wrong_city:before, .wrong_date:before {
     content: '';
     display: block;
     position: absolute;
@@ -59,26 +62,21 @@ textarea {
     box-shadow: 0 0 10px #000000;
     width: 20px;
     height: 20px;
-    opacity: 1;
-    animation: appears 1s ease; }
-  .wrong_input:after, .wrong_city:after {
+    opacity: 1; }
+  .wrong_input:after, .wrong_city:after, .wrong_date:after {
     content: 'Only russian letters!';
     position: absolute;
     border-radius: 6px;
     top: 6px;
     left: 343px;
     background-color: indianred;
-    opacity: 0.8;
-    animation: appears 1s ease; }
-@keyframes appears {
-  0% {
-    opacity: 0; }
-  20% {
-    opacity: 1; }
-  100% {
-    opacity: 0.5; } }
+    opacity: 0.8; }
+
 .wrong_city:after {
   content: 'No such city in data-base!'; }
+
+.wrong_date:after {
+  content: 'Choose another date!'; }
 
 .loader {
   display: none; }

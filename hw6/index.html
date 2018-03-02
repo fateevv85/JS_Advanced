@@ -14,33 +14,30 @@
   <ul>
     <li>поле даты рождения;</li>
     <li>ошибочные поля подсветить с помощью какого-нибудь эффекта, например, Bounce.</li>
+    <li>все возвращаемые ошибки выводить с помощью виджета Dialog.</li>
   </ul>
-  <fieldset>
+  <fieldset id="fieldsetInput">
     <form action="#" class="contacts">
+      <div class="input_fields">
       <label for="name">Name: </label>
       <input id="name" type="text" placeholder="your name" required>
-      <div class="messageWrong hidden">
-        <div class="messageWrong_triangle"></div><div class="messageWrong_text">Поле заполнено неправильно</div>
-      </div>
       <br>
+      <div>
+        <label for="date">Date of birth: </label>
+      <input id="date" type="text" placeholder="dd.mm.yyyy" required>
+      </div>
       <label for="tel">Telephone number: </label>
       <input id="tel" type="tel" placeholder="+7(123)456-7890" required>
-      <div class="messageWrong hidden">
-        <div class="messageWrong_triangle"></div><div class="messageWrong_text">Поле заполнено неправильно</div>
-      </div>
       <br>
       <label for="mail">Email: </label>
       <input id="mail" type="email" placeholder="email@mail.ru" required>
-      <div class="messageWrong hidden">
-        <div class="messageWrong_triangle"></div><div class="messageWrong_text">Поле заполнено неправильно</div>
-      </div>
       <br>
       <label for="text">Message: </label>
       <input id="text" type="text" placeholder="your message">
       <br>
       <div id="city_input_form">
         <label for="city_input" class="acc__label">City: </label>
-        <input type="text" id="city_input" placeholder="input city">
+        <input type="text" id="city_input" placeholder="input city" required>
           <div class="loader">
             <div class="container">
             <span id="cog-0"></span>
@@ -50,15 +47,15 @@
           </div>
           </div>
       </div>
+      </div>
       <input type="submit" value="Отправить">
       <input type="reset" value="Reset">
     </form>
   </fieldset>
 </fieldset>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="js/task.js"></script>
-<script src="js/citySelect.js"></script>
-<script src="js/jqUItask.js"></script>
+<script src="js/code.js"></script>
 </body>
 </html>
