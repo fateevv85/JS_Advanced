@@ -44,7 +44,8 @@
                 day = dateArray[0],
                 month = dateArray[1],
                 year = dateArray[2];
-            if ((year >= 2010 || year < 1900) || (month > 12 || month < 0) || (day > 31 || day < 0)) {
+            if ((year >= 2010 || year < 1900) || (month > 12 || month < 0) ||
+              (day > 31 || day < 0)) {
               date.effect("bounce", {times: 3}, "slow").parent().addClass('wrong_date');
               return;
             }
@@ -54,15 +55,23 @@
           i++;
           //if all fields is true
           if (i === 6) {
-            var successField = $('<div \>').html('Your message successfully send!');
-            dialog(successField, 'Success!');
-            $('.input_fields input').val('');
+            //simulation of loader
+            $('.contacts').addClass('data_transfer')
+              .delay(1000)
+              .queue(function () {
+                $(this).removeClass('data_transfer');
+                var successField = $('<div \>').html('Your message successfully send!');
+                dialog(successField, 'Success!');
+                $('.input_fields input').val('');
+                $(this).dequeue();
+              });
           }
         } else {
           //if test is false
           data.addClass('false').effect("shake", {times: 3}, "slow");
           //message for dialog window
-          var errorField = $('<div />').html('Check out the "' + '<span>' + data.prev().text() + '</span>'+ '" field');
+          var errorField = $('<div />').html('Check out the "' + '<span>' +
+                                              data.prev().text() + '</span>'+ '" field');
           dialog(errorField, 'Error!');
         }
       }
@@ -170,9 +179,10 @@
     date.datepicker({
       firstDay: 1,
       dateFormat: 'dd.mm.yy',
-      monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
-      dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
+      monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль",
+                    "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+      dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+      maxDate: '-8y'
     });
-
   }); //document.ready
 })(jQuery);
